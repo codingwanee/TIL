@@ -6,9 +6,9 @@
 
 ## Functional Programming
 
-* [모나드의 이해.md](https://github.com/codingwanee/TIL/blob/main/Functional Programming/MonadBasic.md)
+* [모나드의 이해.md](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/MonadBasic.md)
 
-* [함수형 프로그래밍의 기초.md](https://github.com/codingwanee/TIL/blob/main/Functional Programming/FunctionalProgrammingBasic.md)
+* [함수형 프로그래밍의 기초.md](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
 
   
 

@@ -3,19 +3,15 @@
 * [API란.md](https://github.com/codingwanee/TIL/blob/main/Basic/API란.md)
 
 
-
 ## Functional Programming
 
 * [모나드의 이해.md](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/MonadBasic.md)
-
 * [함수형 프로그래밍의 기초.md](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
-
-  
+   
 
 ## Network & Server
 
 * [HelloNetwork.md](https://github.com/codingwanee/TIL/blob/main/Network/HelloNetwork.md)
-
 
 
 ## Scala
@@ -30,10 +26,10 @@
 * [LearnWithCode(코드예시)](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode)
 
 
-
 ## Server
 
-* [Server의 기초]
 * kafka
   * [kafka의 기초.md](https://github.com/codingwanee/TIL/blob/main/Server/kafka.md)
 
+* docker
+  * [docker에서 kafka 이용하기 튜토리얼](https://github.com/codingwanee/TIL/blob/main/Server/docker/docker-kafka.md)

@@ -36,8 +36,6 @@ object ActorsCreate extends App {
 
   /*
     App 이라는 trait를 상속받으면 main 메소드에서 실행하는 효과
-
-
    */
 
 

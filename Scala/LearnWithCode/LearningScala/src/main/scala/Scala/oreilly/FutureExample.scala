@@ -27,6 +27,8 @@ class FutureExample {
         doWork(index)
       }
 
+    /*
+
       // Future가 성공적으로 완료하는 경우에 호출될 콜백
       Future onSuccess {
         case answer: Int => println(s"Success! returned: $answer")
@@ -37,6 +39,9 @@ class FutureExample {
       Future onFailure {
         case th: Throwable => println(s"FAILURE! returned: $th")
       }
+
+
+     */
   }
 
 

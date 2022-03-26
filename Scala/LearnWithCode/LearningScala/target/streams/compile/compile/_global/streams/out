@@ -1,0 +1,7 @@
+[error] C:\Users\hwjun\workspace\workspace-TIL\TIL-General\Scala\LearnWithCode\LearningScala\src\main\scala\Scala\oreilly\FutureExample.scala:31:14: value onSuccess is not a member of object scala.concurrent.Future
+[error]       Future onSuccess {
+[error]              ^
+[error] C:\Users\hwjun\workspace\workspace-TIL\TIL-General\Scala\LearnWithCode\LearningScala\src\main\scala\Scala\oreilly\FutureExample.scala:37:14: value onFailure is not a member of object scala.concurrent.Future
+[error]       Future onFailure {
+[error]              ^
+[error] two errors found

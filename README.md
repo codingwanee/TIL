@@ -18,7 +18,7 @@
   * [Scala의 Future](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaFuture.md)
   * [Scala의 Option](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaOption.md)
   * [Scala의 리터럴](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaLiteral.md)
-  * [Scala의 패턴매치](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaPatternMatch.md)
+  * [Scala의 패턴매치](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaPatternmatch.md)
 
 * Akka
   * [Akka의 기초](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/HelloAkka.md)

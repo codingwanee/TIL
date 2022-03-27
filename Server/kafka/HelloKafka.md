@@ -13,8 +13,7 @@
 
 #### 용어정리
 
-* Message: 데이터 단위
-* Publisher(= Producer) : 데이터 송신
+* Message: 데이터 단위* Publisher(= Producer) : 데이터 송신
 * Subscriber(= Consumer) : 데이터 수신
 
 

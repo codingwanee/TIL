@@ -132,7 +132,7 @@ import java.net.InetSocketAddress;
 * 참고한 곳  https://docs.microsoft.com/ko-kr/dotnet/api/system.web?view=netframework-4.8
 
 #### HttpHeaders
-* HttpHeaders 클래
+* 
 
 
 #### httpserver.HttpServer

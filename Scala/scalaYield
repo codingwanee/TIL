@@ -1,0 +1,45 @@
+
+# 스칼라 for ... yield 구문
+* 스칼라의 for .. yield 는 for comprehension을 좀 더 가독성 있게 만든 문법설탕이다.
+* 참고한 글 https://knight76.tistory.com/entry/scala-for-문-yield
+
+#### 결과를 vector로 반환
+```scala
+val a =  for(i <- 1 to 3) yield i;
+// 결과 Vector(1, 2, 3)
+```
+
+#### 결과값에 연산
+```scala
+val a =  for(i <- 1 to 3) yield i * 100;
+// 결과 Vector(100, 200, 300)
+```
+
+#### 결과값을 조건문으로 비교
+```scala
+val a =  for(i <- 1 to 3) yield i > 2;
+// 결과 Vector(false, false, true)
+```
+
+#### 결과값을 조건문으로 filtering
+```scala
+val a = for( i <- 1 to 3 ; if i == 1 ) yield i
+// 결과 Vector(1)
+```
+
+* if문을 여러 개 사용할 수도 있다.
+```scala
+val a = for( i <- 1 to 3 ; if i == 1 ; if i == 2 ) yield i
+```
+
+#### 좀 더 확장된 사용법
+```scala
+val list = List(1, 2, 3)
+val a = for {
+  element <- list
+} yield {
+  element
+}
+
+// 결과 List(1, 2, 3)
+```

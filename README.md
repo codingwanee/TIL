@@ -1,7 +1,5 @@
 ## Basic
 
-
-
 ## Functional Programming
 
 * [모나드의 이해](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/MonadBasic.md)
@@ -34,6 +32,9 @@
   * [API의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-API.md)
   * [HTTP의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/hello-HTTP.md)
   * [HTTP 서버 만들어보기](https://github.com/codingwanee/TIL/blob/main/Basic/about-HTTP-server.md)
+  * [라우팅의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-routing.md)
+  * [소켓의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-socket.md)
+  * [SSL의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-ssl.md)
 
 
 #### Server
@@ -56,3 +57,6 @@
 ## LearnWithCode
 * scala
   * [Scala](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode)
+* akka
+* etc
+  * [akka-HTTP-H2](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode/HttpH2DB)

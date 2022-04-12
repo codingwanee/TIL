@@ -29,7 +29,7 @@
         * 슬래시(/)를 통해 키워드로 옵션 검색 가능
 
 * 필요한 명령을 검색으로 찾는 법
-    1. ~~~ in linux 로 검색.   (ex) copy file in linux
+    1. ~ in linux 로 검색.   (ex) copy file in linux
     2. 문법을 본다
     3. 예제를 본다
     4. 그래도 이해가 안되면 영어 공문을 본다

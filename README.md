@@ -1,10 +1,17 @@
 ## Basic
 
-## Functional Programming
+* linux
+   * [리눅스의 이해(1)](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(1).md)
+   * [리눅스의 이해(2)](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(2).md)
+   * [리눅스의 이해(3) - 프로세스](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(3).md)
+   * [리눅스의 이해(4) - 사용자, 권한](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(4).md)
+   * [리눅스의 이해(5) - 서버](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(5).md)
+   
 
+## Functional Programming
 * [모나드의 이해](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/MonadBasic.md)
 * [함수형 프로그래밍의 기초](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
-   
+
 
 ## Scala
 

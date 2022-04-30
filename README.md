@@ -9,8 +9,8 @@
    
 
 ## Functional Programming
-* [모나드의 이해](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/MonadBasic.md)
-* [함수형 프로그래밍의 기초](https://github.com/codingwanee/TIL/blob/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
+* [모나드의 이해](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/MonadBasic.md)
+* [함수형 프로그래밍의 기초](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
 
 
 ## Scala
@@ -36,12 +36,12 @@
 
 * basic
   * [HelloNetwork](https://github.com/codingwanee/TIL/blob/main/Network/HelloNetwork.md)
-  * [API의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-API.md)
-  * [HTTP의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/hello-HTTP.md)
-  * [HTTP 서버 만들어보기](https://github.com/codingwanee/TIL/blob/main/Basic/about-HTTP-server.md)
-  * [라우팅의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-routing.md)
-  * [소켓의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-socket.md)
-  * [SSL의 기초](https://github.com/codingwanee/TIL/blob/main/Basic/about-ssl.md)
+  * [API의 기초](https://github.com/codingwanee/TIL/tree/main/Network/about-API.md)
+  * [HTTP의 기초](https://github.com/codingwanee/TIL/tree/main/Network/hello-HTTP.md)
+  * [HTTP 서버 만들어보기](https://github.com/codingwanee/TIL/tree/main/Network/about-HTTP-server.md)
+  * [라우팅의 기초](https://github.com/codingwanee/TIL/tree/main/Network/about-routing.md)
+  * [소켓의 기초](https://github.com/codingwanee/TIL/tree/main/Network/about-socket.md)
+  * [SSL의 기초](https://github.com/codingwanee/TIL/tree/main/Network/about-ssl.md)
 
 
 #### Server
@@ -51,14 +51,12 @@
   * [server의 구성](https://github.com/codingwanee/TIL/blob/main/Server/server/server-structure.md)
 
 * kafka
-  * [kafka의 기초](https://github.com/codingwanee/TIL/blob/main/Server/kafka/Hellokafka.md)
+  * [kafka의 기초](https://github.com/codingwanee/TIL/blob/main/Server/kafka/HelloKafka.md)
   * [kafka의 broker](https://github.com/codingwanee/TIL/blob/main/Server/kafka/kafka-broker.md)
   * [kafka의 producer](https://github.com/codingwanee/TIL/blob/main/Server/kafka/kafka-client-consumer.md)
   * [kafka의 consumer](https://github.com/codingwanee/TIL/blob/main/Server/kafka/kafka-client-producer.md)
   * [kafka의 message, topic, partition](https://github.com/codingwanee/TIL/blob/main/Server/kafka/kafka-message-topic-partition.md)
-
-* docker
-  * [docker에서 kafka 이용하기 튜토리얼](https://github.com/codingwanee/TIL/blob/main/Server/docker/docker-kafka.md)
+  * [docker에서 kafka 이용하기 튜토리얼](https://github.com/codingwanee/TIL/tree/main/Server/kafka/docker-kafka.md)
 
 
 ## LearnWithCode

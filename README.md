@@ -27,7 +27,9 @@
 
 * Akka
   * [Akka의 기초](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/HelloAkka.md)
-  * [Akka-Actor 참조](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/actor-reference)
+  * [Akka-Http](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/actor-http.md)
+  * [Akka-Streams](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/actor-streams.md)
+  * [Akka-Reference](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/actor-reference.md)
 
 
 ## Network & Server

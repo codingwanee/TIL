@@ -1,26 +1,55 @@
-# 스칼라의 Future
+# Future
 
-* scala.concurrent.Future API는 암시적 인자를 활용해서 코드에 필요한 준비 코드를 줄여주는 동시성 도구다.
+## 퓨처 Future
+* JVM 언어들의 동시성 도구, Future
+* 비동기적 프로그래밍을 위한 라이브러리
+* Future는 '미래의 값을 저장하고 있는 객체'라고 이해하면 된다.
 
-* 수행할 작업 중 일부를 Future로 감싸면 그 작업을 비동기적으로 수행한다. 그리고 Future API는 결과가 준비된 경우 콜백을 호출해주는 등 결과를 처리할 수 있는 다양한 방법을 제공한다.
+#### 자바와 스칼라의 Future 비교
+* 스칼라와 자바의 Future의 가장 큰 차이점은, 두 퓨쳐 모두 비동기적인 계산의 결과를 표현하지만, 자바의 퓨처에서는 블로킹(blocking) 방식의 get으로 값을 가져와야 한다는 점이 다르다.
+* 스칼라의 Future는 결합법칙을 만족시키 못해 Monad가 아닌 Monadic Type이다.
+
+
+## 자바의 Future
+* 비동기적인 연산의 결과를 표현하는 클래스
+* 멀티스레드 환경에서 처리된 어떤 데이터를 다른 쓰레드에 전달
+* 내부적으로 Thread-safe하도록 구현되었기 때문에 synchronized block을 사용하지 않아도 됨
+* 블로킹 방식의 get()으로 결과를 얻어와야 함 -> Future가 완료될 때까지 다른 계산을 수행 X
+
+
+## 스칼라의 Future
+* 비동기적 프로그래밍을 지원하기 위해 Scala가 제공하는 표준 라이브러리.
+* Future를 사용해 변경 불가능한 상태를 비동기적으로 변환하여 블로킹 방식으로 인한 동시성 처리의 어려움을 피할 수 있게 해줌.
+* 스칼라의 Future는 계산결과의 완료여부와 관계없이 결과값의 변환을 지정할 수 있다.
+* 각 변환은 원래의 Future를 지정한 함수에 따라 변환한 결과를 비동기적으로 담은 것을 표현하는 새로운 Future를 생성
+* 계산을 수행하는 스레드(thread)는 암시적으로 제공되는 실행 컨텍스트(execution context)를 사용해 결정
+* 불변값에 대한 일련의 변환으로 비동기 계산을 표현할 수 있고, 공유 메모리나 락에 대해서 신경쓸 필요가 없음
+* 퓨쳐'값' =/ 퓨쳐'계산'
+* scala.concurrent.Future API는 암시적 인자를 활용해서 코드에 필요한 준비 코드를 줄여주는 동시성 도구
+* 수행할 작업 중 일부를 Future로 감싸면 그 작업을 비동기적으로 수행한다. 그리고 Future API는 결과가 준비된 경우 콜백을 호출해주는 등 결과를 처리할 수 있는 다양한 방법을 제공
+
+
+#### trait Future[T]
+* 퓨쳐값.
+* T 타입의 실제 우리가 리턴받기 원하는 '객체'를 포함
+
+#### def apply[T](b: => T) (implicit e: ExcecutionContext) : Future[T]
+* 퓨처계산.
+* 실제 계산을 수행하는 '함수'를 매개변수로 넣어주고 있음.
+* 암시적으로 ExecutionContext가 매개변수로 들어간다. 즉 쓰레드풀을 넣어주는 것
+
+- 참고한 글: https://sungjk.github.io/2017/08/09/scala-future.html
 
 
 
 #### ExecutionContext
 
+```scala
 import scala.concurrent.ExecutionContext.Implicits.gloal
+```
 
 * connection pool과 같은 개념
-* 퓨쳐가 일반적으로 사용하는 ExecutionContext이며, implicit 키워드로 선언된다. 따라서 
-
-### 퓨처 Future
-
-Future는 '미래의 값을 저장하고 있는 객체'라고 이해하면 된다.
-
-* 스칼라의 Future는 
-* 스칼라와 자바의 Future의 가장 큰 차이점은, 두 퓨쳐 모두 비동기적인 계산의 결과를 표현하지만, 자바의 퓨처에서는 블로킹(blocking) 방식의 get으로 값을 가져와야 한다는 점이 다르다.
-* 스칼라의 Future는 결합법칙을 만족시키 못해 Monad가 아닌 Monadic Type이다.
-
+* 퓨쳐가 일반적으로 사용하는 ExecutionContext이며, implicit 키워드로 선언
 
 
 ### 프로미스 Promise
@@ -53,10 +82,7 @@ def createCustomToken[T](userId: UserId)(handler: String => T): Future[T] = {
 ```
 
 
-
-현상과 서사
-
-### 옵션 Option
+#### 옵션 Option
 
 * Option의 조건 두 가지
    	1) null을 안전하게 대체하기 위한 것

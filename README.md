@@ -1,36 +1,30 @@
-## Basic
-
-* linux
-   * [리눅스의 이해(1)](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(1).md)
-   * [리눅스의 이해(2)](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(2).md)
-   * [리눅스의 이해(3) - 프로세스](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(3).md)
-   * [리눅스의 이해(4) - 사용자, 권한](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(4).md)
-   * [리눅스의 이해(5) - 서버](https://github.com/codingwanee/TIL/tree/main/Basic/hello-linux(5).md)
-   
-
-## Functional Programming
-* [모나드의 이해](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/MonadBasic.md)
-* [함수형 프로그래밍의 기초](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
-
-
 ## Scala
 
 * about scala
   * [Scala의 기초](https://github.com/codingwanee/TIL/blob/main/Scala/HelloScala.md)
   * [Scala 심화학습](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaDeep.md)
-
+  * [Scala의 구문](https://github.com/codingwanee/TIL/tree/main/Scala/scala-syntax.md)
+  * [Scala의 자료구조](https://github.com/codingwanee/TIL/blob/main/Scala/scala-datastructure.md)
+  * [Scala의 테스트코드](https://github.com/codingwanee/TIL/blob/main/Scala/scala-test.md)
+  * [Scala의 SBT](https://github.com/codingwanee/TIL/blob/main/Scala/scala-sbt.md)
+  
 * scala more deep
   * [Scala의 Future](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaFuture.md)
   * [Scala의 Option](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaOption.md)
   * [Scala의 리터럴](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaLiteral.md)
   * [Scala의 패턴매치](https://github.com/codingwanee/TIL/blob/main/Scala/ScalaPatternmatch.md)
 
-* Akka
-  * [Akka의 기초](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/HelloAkka.md)
-  * [Akka-Http](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/akka-http.md)
-  * [Akka-Streams](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/akka-streams.md)
-  * [Akka-Reference](https://github.com/codingwanee/TIL/tree/main/Scala/Akka/akka-reference.md)
+* akka
+  * [Akka의 기초](https://github.com/codingwanee/TIL/tree/main/Akka/HelloAkka.md)
+  * [Akka-Http](https://github.com/codingwanee/TIL/tree/main/Akka/akka-http.md)
+  * [Akka-Router](https://github.com/codingwanee/TIL/tree/main/Akka/akka-router.md)
+  * [Akka-Streams](https://github.com/codingwanee/TIL/tree/main/Akka/akka-streams.md)
+  * [Akka-Reference](https://github.com/codingwanee/TIL/tree/main/Akka/akka-reference.md)
+  * actor
+    * [actor의 기초](https://github.com/codingwanee/TIL/tree/main/Akka/about-actor.md)
 
+* scala with library
+  * [slick](https://github.com/codingwanee/TIL/tree/main/Scala/about-slick.md)
 
 ## Network & Server
 
@@ -61,9 +55,19 @@
   * [docker에서 kafka 이용하기 튜토리얼](https://github.com/codingwanee/TIL/tree/main/Server/kafka/docker-kafka.md)
 
 
+## Functional Programming
+
+* basic
+  * [모나드의 이해](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/MonadBasic.md)
+  * [함수형 프로그래밍의 기초](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
+
+
 ## LearnWithCode
+
 * scala
   * [Scala](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode)
+
 * akka
-* etc
+
+* server
   * [akka-HTTP-H2](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode/HttpH2DB)

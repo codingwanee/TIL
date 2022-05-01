@@ -66,11 +66,11 @@
 ## LearnWithCode
 
 * scala
-  * [Scala](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode/LearningScala/src/main/scala/Scala)
+  * [Scala](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Scala)
 
 * akka
   * [cookbook 예제코드](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Akka/cookbook)
-  * [hama 블로그 예제코드](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Akka/hama)
+  * [hama 블로그 예제코드](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Akka/Hama)
   
 * server
   * [akka-HTTP-H2](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode/HttpH2DB)

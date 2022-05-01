@@ -16,6 +16,7 @@
 
 * akka
   * [Akka의 기초](https://github.com/codingwanee/TIL/tree/main/Akka/HelloAkka.md)
+  * [Akka 관련 자료정리 - from eirny](https://github.com/codingwanee/TIL/tree/main/Akka/about-akka.md)
   * [Akka-Http](https://github.com/codingwanee/TIL/tree/main/Akka/akka-http.md)
   * [Akka-Router](https://github.com/codingwanee/TIL/tree/main/Akka/akka-router.md)
   * [Akka-Streams](https://github.com/codingwanee/TIL/tree/main/Akka/akka-streams.md)

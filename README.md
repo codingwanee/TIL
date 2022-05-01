@@ -65,15 +65,15 @@
 ## LearnWithCode
 
 * scala
-  * [Scala](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode/LearningScala/src/main/scala/scala)
+  * [Scala](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode/LearningScala/src/main/scala/Scala)
 
 * akka
-  * [cookbook](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/akka/cookbook)
-  * [hama](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/akka/hama)
+  * [cookbook 예제코드](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Akka/cookbook)
+  * [hama 블로그 예제코드](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Akka/hama)
   
 * server
   * [akka-HTTP-H2](https://github.com/codingwanee/TIL/tree/main/Scala/LearnWithCode/HttpH2DB)
   * [kafka](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/kafkaPractice)
 
 * mission
-  * [mission](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/mission)
+  * [mission](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Mission)

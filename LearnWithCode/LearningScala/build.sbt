@@ -15,5 +15,8 @@ libraryDependencies ++= Seq(
 ) ++ Seq(
   "org.slf4j" % "slf4j-api" % "1.7.25",
   "ch.qos.logback" % "logback-classic" % "1.2.3"
+) ++ Seq(
+  // https://mvnrepository.com/artifact/org.apache.kafka/kafka
+  "org.apache.kafka" %% "kafka" % "2.8.0"
 )
 

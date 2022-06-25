@@ -1,0 +1,4 @@
+## supervisor
+* 한번 실행된 프로그램(or 프로세스)가 절대 꺼지지 않도록 도와주는 프로그램
+* supervisord : d는 deamon.
+* supervisorctl : supervisor로 구동되는 프로세스를 관리하기 위한 명령어

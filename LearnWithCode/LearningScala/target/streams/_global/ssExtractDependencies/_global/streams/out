@@ -1,8 +1,29 @@
+<<<<<<< HEAD
 [error] sbt.librarymanagement.ResolveException: Error downloading org.apache.kafka:kafka_2.12:0.8.0
 [error]   Not found
 [error]   Not found
 [error]   not found: /Users/waneej/.ivy2/local/org.apache.kafka/kafka_2.12/0.8.0/ivys/ivy.xml
 [error]   not found: https://repo1.maven.org/maven2/org/apache/kafka/kafka_2.12/0.8.0/kafka_2.12-0.8.0.pom
+=======
+<<<<<<< HEAD:Scala/LearnWithCode/LearningScala/target/streams/_global/ssExtractDependencies/_global/streams/out
+[error] sbt.librarymanagement.ResolveException: Error downloading com.typesafe.slick:slick-hikaricp_2.12:3.2.0-M1
+[error]   Not found
+[error]   Not found
+[error]   not found: C:\Users\hwjun\.ivy2\local\com.typesafe.slick\slick-hikaricp_2.12\3.2.0-M1\ivys\ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/com/typesafe/slick/slick-hikaricp_2.12/3.2.0-M1/slick-hikaricp_2.12-3.2.0-M1.pom
+[error] Error downloading com.typesafe.slick:slick_2.12:3.2.0-M1
+[error]   Not found
+[error]   Not found
+[error]   not found: C:\Users\hwjun\.ivy2\local\com.typesafe.slick\slick_2.12\3.2.0-M1\ivys\ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/com/typesafe/slick/slick_2.12/3.2.0-M1/slick_2.12-3.2.0-M1.pom
+=======
+[error] sbt.librarymanagement.ResolveException: Error downloading com.typesafe.akka:akka-remote_2.12:2.4.11
+[error]   Not found
+[error]   Not found
+[error]   not found: /Users/waneej/.ivy2/local/com.typesafe.akka/akka-remote_2.12/2.4.11/ivys/ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/com/typesafe/akka/akka-remote_2.12/2.4.11/akka-remote_2.12-2.4.11.pom
+>>>>>>> cf49136c08a738f2884a0aa5939735e4200fc231:LearnWithCode/LearningScala/target/streams/_global/ssExtractDependencies/_global/streams/out
+>>>>>>> d75da166d08732296f79b7d39efd3d2f4a2dcfc3
 [error] 	at lmcoursier.CoursierDependencyResolution.unresolvedWarningOrThrow(CoursierDependencyResolution.scala:249)
 [error] 	at lmcoursier.CoursierDependencyResolution.$anonfun$update$35(CoursierDependencyResolution.scala:218)
 [error] 	at scala.util.Either$LeftProjection.map(Either.scala:573)
@@ -32,9 +53,28 @@
 [error] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 [error] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 [error] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<<<<<<< HEAD:Scala/LearnWithCode/LearningScala/target/streams/_global/ssExtractDependencies/_global/streams/out
+[error] 	at java.lang.Thread.run(Thread.java:748)
+[error] (ssExtractDependencies) sbt.librarymanagement.ResolveException: Error downloading com.typesafe.slick:slick-hikaricp_2.12:3.2.0-M1
+[error]   Not found
+[error]   Not found
+[error]   not found: C:\Users\hwjun\.ivy2\local\com.typesafe.slick\slick-hikaricp_2.12\3.2.0-M1\ivys\ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/com/typesafe/slick/slick-hikaricp_2.12/3.2.0-M1/slick-hikaricp_2.12-3.2.0-M1.pom
+[error] Error downloading com.typesafe.slick:slick_2.12:3.2.0-M1
+[error]   Not found
+[error]   Not found
+[error]   not found: C:\Users\hwjun\.ivy2\local\com.typesafe.slick\slick_2.12\3.2.0-M1\ivys\ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/com/typesafe/slick/slick_2.12/3.2.0-M1/slick_2.12-3.2.0-M1.pom
+=======
 [error] 	at java.lang.Thread.run(Thread.java:750)
 [error] (ssExtractDependencies) sbt.librarymanagement.ResolveException: Error downloading org.apache.kafka:kafka_2.12:0.8.0
 [error]   Not found
 [error]   Not found
+<<<<<<< HEAD
 [error]   not found: /Users/waneej/.ivy2/local/org.apache.kafka/kafka_2.12/0.8.0/ivys/ivy.xml
 [error]   not found: https://repo1.maven.org/maven2/org/apache/kafka/kafka_2.12/0.8.0/kafka_2.12-0.8.0.pom
+=======
+[error]   not found: /Users/waneej/.ivy2/local/com.typesafe.akka/akka-remote_2.12/2.4.11/ivys/ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/com/typesafe/akka/akka-remote_2.12/2.4.11/akka-remote_2.12-2.4.11.pom
+>>>>>>> cf49136c08a738f2884a0aa5939735e4200fc231:LearnWithCode/LearningScala/target/streams/_global/ssExtractDependencies/_global/streams/out
+>>>>>>> d75da166d08732296f79b7d39efd3d2f4a2dcfc3

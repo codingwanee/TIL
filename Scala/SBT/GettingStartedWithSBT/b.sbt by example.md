@@ -635,8 +635,45 @@ sbt:Hello> scalaVersion
 ```
 - 이 세팅은 `reload` 후에는 사라진다.
 
-## dist task 검출하기
-- `dist`에 관련된 내용을 좀 더 알아보기 위해서는 `help`와 `inspect` 이용
-```sbt
-
+## dist task 검사하기
+- `dist`에 대해 좀더 알아보기 위해 `try`와 `inspect` 명령어를 이용해보자
+```shell
+sbt:Hello> help dist
+Creates the distribution packages.
+sbt:Hello> inspect dist
 ```
+- 의존성으로 inspect 를 재귀적으로 호출하고 싶다면 `inspect tree`를 이용한다
+```shell
+sbt:Hello> inspect tree dist
+[info] dist = Task[java.io.File]
+[info]   +-Universal / dist = Task[java.io.File]
+....
+```
+
+## 배치 모드
+- sbt는 배치 모드로도 실행이 가능하다.
+- sbt 명령어를 터미널에서 직접 쳐보도록 한다.
+```shell
+$ sbt clean "testOnly HelloSpec"
+```
+
+- *Note* 배치모드는 실행할 때마다 JVM 스핀업과 JIT을 사용한다. 따라서 빌드 속도가 훨씬 느리게 돌아갈 것이다. 매일매일 진행되는 코딩에서는 sbt shell 또는 `-testQuick` 같은 지속적 테스트를 이용하길 권장한다.
+
+
+## sbt new 명령어
+- sbt `new` 명령어를 이용해 간단하게 "Hello world" 빌드를 셋업해보자
+```shell
+$ sbt new scala/scala-seed.g8
+....
+A minimal Scala project.
+
+name [My Something Project]: hello
+
+Template applied in ./hello
+```
+- 프로젝트 이름이 창에 뜨면, hello 라고 입력하자.
+- 이제 `hello`라는 이름의 디렉토리 하위에 새로운 프로젝트가 생성된 것을 볼 수 있다.
+
+## Credits
+- 본 페이지는 William "Scala William" Narmontas가 적은 [Essintial sbt](https://www.scalawilliam.com/essential-sbt/) 튜토리얼에 기반하여 작성되었다.
+

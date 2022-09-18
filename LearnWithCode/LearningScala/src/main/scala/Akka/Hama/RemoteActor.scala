@@ -1,4 +1,4 @@
-package Akka.Hama
+package akka.Hama
 
 import akka.actor.{Actor, Identify, Props}
 

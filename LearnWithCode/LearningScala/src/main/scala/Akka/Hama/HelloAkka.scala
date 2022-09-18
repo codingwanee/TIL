@@ -1,4 +1,4 @@
-package Akka.Hama
+package akka.hama
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.event.Logging

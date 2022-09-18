@@ -1,0 +1,16 @@
+akka.quartz {
+  threadPool {
+    threadCount = 1
+    threadPriority = 5
+    daemonThreads = true
+  }
+  
+  schedules {
+    Every30Seconds {
+      description = ""
+      expression = "*/30 * * ? * *"
+    }  
+  }
+  defaultTimezone = UTC
+}
+

@@ -1,6 +1,6 @@
-package Akka.Hama
+package akka.Hama
 
-import Akka.Hama.mysystem.ourSystem
+import akka.Hama.mysystem.ourSystem
 import akka.actor.{Actor, Props}
 
 

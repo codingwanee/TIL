@@ -1,9 +1,10 @@
-package Akka.Hama
+package akka.hama
 
-import Akka.Hama.mysystem.ourSystem
 import akka.actor._
+import akka.hama.mysystem.ourSystem
 import akka.pattern.{ask, pipe}
 import akka.util.Timeout
+
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
 

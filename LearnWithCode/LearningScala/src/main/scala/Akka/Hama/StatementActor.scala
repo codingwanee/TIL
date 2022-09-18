@@ -1,6 +1,5 @@
-package HamaCode
+package akka.hama
 
-import HamaCode.ActorsHierarchy.ourSystem
 import akka.actor.{Actor, Props}
 import akka.event.Logging
 

@@ -1,9 +1,9 @@
-package HamaCode
+package akka.hama
 
-import HamaCode.ActorsHierarchy.ourSystem
 import akka.actor.Status.{Failure, Success}
 import akka.actor.{Actor, Props, Status, Terminated}
 import akka.event.Logging
+import akka.hama.ActorsHierarchy.ourSystem
 import akka.pattern.gracefulStop
 
 import scala.concurrent.duration.DurationInt

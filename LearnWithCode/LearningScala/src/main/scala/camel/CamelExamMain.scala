@@ -55,12 +55,32 @@ object CamelExamMain extends App {
       //        .to("log:apache.camel.ExampleMain")
 
       // example 2) 데이터 처리 후 결과에 따라 컬럼을 변경하도록 옵션 추가
-      val sqlSelect = "select * from test_msg where status = 'R'"
-      val markSuccess = "update test_msg set status = 'S' where id = :#id"
-      val markFailure = "update test_msg set status = 'F' where id = :#id"
+//      val sqlSelect = "select * from test_msg where status = 'R'"
+//      val markSuccess = "update test_msg set status = 'S' where id = :#id"
+//      val markFailure = "update test_msg set status = 'F' where id = :#id"
+//      from(s"sql:$sqlSelect?dataSource=ds&onConsume=$markSuccess&onConsumeFailed=$markFailure")
+//        .to("log:apache.camel.ExampleMain")
 
-      from(s"sql:$sqlSelect?dataSource=ds&onConsume=$markSuccess&onConsumeFailed=$markFailure")
-        .to("log:apache.camel.ExampleMain")
+      // example 3)
+      val sqlSelect = "select * from test_msg where status = 'R'"
+      val sqlUpdate = "update test_msg set status = :#${in.header.status} where id = :#${in.header.id}"
+      from(s"sql:$sqlSelect?dataSource=ds&maxMessagesPerPoll=1&delay=3s") // 얼마만에 한번씩 얼마만큼의 데이처를 처리할지를 결정
+        .process{ exchange => // 프로세서를 추가하여 데이터베이스 레코드의 값을 읽어와서 처리(여기서는 로그로 출력)하고 그 다음 컴포넌트가 동작할 때 필요한 id, status값을 out 메시지의 헤더로 설정하였다.
+          val rs = exchange.getIn.getBody.asInstanceOf[java.util.Map[String, AnyRef]]
+          val id = rs.get("ID").asInstanceOf[Int]
+          val subject = rs.get("SUBJECT").asInstanceOf[String]
+          val body = rs.get("BODY").asInstanceOf[String]
+          val email = rs.get("EMAIL").asInstanceOf[String]
+          val status = rs.get("STATUS").asInstanceOf[String]
+          println(s"===========> $id, $subject, $body, $email, $status")
+          // processing the record
+          // ......
+          // then send the result to the sql producer
+          exchange.getOut.setHeader("status", "X")
+          exchange.getOut.setHeader("id", id)
+        } // 프로세스를 통과한 Exchange의 in 메시지의 헤더를 참조하여 SQL update 문을 실행
+        // 메시지 헤더 값을 SQL 내에서 참조하기 위해서 ${in.header.status}와 ${in.header.id}로 표현된 Simple Language를 사용하였다.
+        .to(s"sql:$sqlUpdate?dataSource=ds", "log:apache.camel.ExampleMain") // .to()를 호출하는 데 두 개의 컨슈머(sql:, log:)가 사용됨
     }
   })
 

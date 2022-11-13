@@ -117,3 +117,13 @@ lazy val root = (project in file("."))
 ```conf
 lazy val hello = taskKey[Unit]("An example task")
 ```
+- 우리는 `.sbt` 파일에 `val`과 `def`를 포함시킬 수 있다는 사실을 이용했다.
+- 이러한 정의들은 파일에서 정의된 위치에 관계없이 설정 전에 평가된다.
+- *Note:* 일반적으로, 초기화 순서 문제를 피하기 위해 lazy val이 val 대신 쓰일 수 있다.
+
+
+
+## Task vs Setting Keys
+- `TaskKey[T]`는 작업을 정의하기 위한 것이다. Task는 `compile` 또는`package`과 같은 오퍼레이션이다. 이것들은 `Unit`(스칼라의 void) 또는 task과 관련된 값을 반환한다. 예를들어 `package`는 `TaskKey[File]`이고, 그 값은 jar file 안에 있다.
+
+- task execution을 시작할 때마다, 예를들어 액티브 된 sbt 프롬프트에 `compile` 명령어를 입력했다면, sbt는 관련된 task를 정확히 한 번 재실행한다.

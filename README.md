@@ -77,3 +77,8 @@
 
 * mission
   * [mission](https://github.com/codingwanee/TIL/tree/main/LearnWithCode/LearningScala/src/main/scala/Mission)
+  
+  
+  ## Etc.
+  
+  * [칼만 필터](https://github.com/codingwanee/TIL/tree/main/etc/about-kalman-filter.md)

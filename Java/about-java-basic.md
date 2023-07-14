@@ -8,5 +8,7 @@
     - jdk 설치 경로(Java Development Kit)
 - /Library/Java/JavaVirtualMachines/jdk<version>.jdk/Contents/Home/bin
     - jvm 실행 파일 경로
+- ~/.sdkman/candidates/java 
+    - sdk로 자바를 설치했을 경우 jdk가 위 경로에 설치된다.
 - JAVA_HOME 환경변수
     - JDK 설치 경로를 값으로 설정    

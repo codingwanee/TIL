@@ -91,8 +91,9 @@
         jssc.awaitTermination();   // Wait for the computation to terminate
       ```
 
-* 9999번 포트에서 네트워크로 데이터를 수신하는 간단한 TCP 서버를 시작
-``` shell
-    $ nc -lk 9999
-```
+6. 참고
+   - 9999번 포트에서 네트워크로 데이터를 수신하는 간단한 TCP 서버를 시작
+   - ``` shell
+        $ nc -lk 9999
+    ```
 

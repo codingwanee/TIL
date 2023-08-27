@@ -45,3 +45,54 @@
         SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("NetworkWordCount");
         JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(1));
       ```
+      
+2. DStream 생성
+    - 위에서 만든 context를 이용하여 TCP 소스로부터 들어오는 데이터를 표현하는 DStream을 생성할 수 있다.
+    - 이 때 hostname과 port를 지정해주도록 한다.
+    - DStream 부연설명
+        - Spark Streaming에서 스트림 처리를 위한 고수준의 추상화
+        - 연속적인 데이터 스트림을 나타내며, 각 시간 단위(eg. seconds)마다 RDD의 시퀀스로 구성된 스트림
+        - 데이터를 미니 배치로 나누어 병렬 처리하면서 실시간 처리를 가능하도록 함
+    - ``` java
+        // Create a DStream that will connect to hostname:port, like localhost:9999
+        JavaReceiverInputDStream<String> lines = jssc.socketTextStream("localhost", 9999);
+    ```
+    
+3. 입력받은 데이터를 공백을 기준으로 문장을 단어로 나누기
+    - 위에서 선언한 `lines` DStream은 데이터 서버로부터 받아 온 데이터 스트림을 표현한다.
+    - 이 스트림 속 record 하나하나는 텍스트 라인으로 이루어진다. 이 텍스트 라인을 공백을 기준으로 각 단어로 나누어보자.
+    - flatMap은 입력받은 소스 DStream 속 각 record로부터 새로운 record들로 구성된 새로운 DStream을 생성하는 기능이다.
+    - 이 예시에서는 각 문장을 여러 단어들로 쪼개어 `words` DStream으로 표현할 것이다.
+    - 이 flatMap은 `FlatMapFunction` 객체를 이용해 변환이 정의되어 있는 것을 기억해야 한다.
+    - 뒤에서도 알게 되겠지만, Java API는 이와 같이 DStream 변환을 정의하는 데 도움이 되는 클래스들을 여러 개 제공하고 있다.
+    - ``` java
+        // Split each line into words
+        JavaDStream<String> words = lines.flatMap(x -> Arrays.asList(x.split(" ")).iterator());
+    ```
+    
+4. 단어 개수 세기
+    - 아래 코드에서 `words` DStream 속 각 단어는 한 번에 한 단어씩 변환되어 `PairFunction` 객체를 사용해 `(단어, 1)` 쌍의 DStream으로 매핑된다.
+    - Function2 객체를 사용하여 생성된 (단어, 1) 쌍의 DStream을 줄여 각 단어의 빈도를 배치 단위로 계산한다.
+    - 마지막으로 `wordCounts.print()`는 매 초마다 생성된 카운트 중 일부를 출력한다.
+    - ``` java
+        // Count each word in each batch
+        JavaPairDStream<String, Integer> pairs = words.mapToPair(s -> new Tuple2<>(s, 1));
+        JavaPairDStream<String, Integer> wordCounts = pairs.reduceByKey((i1, i2) -> i1 + i2);
+
+        // Print the first ten elements of each RDD generated in this DStream to the console
+        wordCounts.print();
+    ```
+
+5. 실행
+    - 위 코드들이 실행된 후에, Spark Streaming은 수행할 계산을 설정만 하고 실제 처리를 시작하지는 않는다.
+    - 실제 처리를 시작하려면 아래와 같이 `start` 메서드를 호출해야 한다.
+    - ``` java
+        jssc.start();              // Start the computation
+        jssc.awaitTermination();   // Wait for the computation to terminate
+    ```
+
+* 9999번 포트에서 네트워크로 데이터를 수신하는 간단한 TCP 서버를 시작
+``` shell
+    $ nc -lk 9999
+```
+

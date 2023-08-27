@@ -56,7 +56,7 @@
     - ``` java
         // Create a DStream that will connect to hostname:port, like localhost:9999
         JavaReceiverInputDStream<String> lines = jssc.socketTextStream("localhost", 9999);
-    ```
+      ```
     
 3. 입력받은 데이터를 공백을 기준으로 문장을 단어로 나누기
     - 위에서 선언한 `lines` DStream은 데이터 서버로부터 받아 온 데이터 스트림을 표현한다.
@@ -68,7 +68,7 @@
     - ``` java
         // Split each line into words
         JavaDStream<String> words = lines.flatMap(x -> Arrays.asList(x.split(" ")).iterator());
-    ```
+      ```
     
 4. 단어 개수 세기
     - 아래 코드에서 `words` DStream 속 각 단어는 한 번에 한 단어씩 변환되어 `PairFunction` 객체를 사용해 `(단어, 1)` 쌍의 DStream으로 매핑된다.
@@ -81,7 +81,7 @@
 
         // Print the first ten elements of each RDD generated in this DStream to the console
         wordCounts.print();
-    ```
+      ```
 
 5. 실행
     - 위 코드들이 실행된 후에, Spark Streaming은 수행할 계산을 설정만 하고 실제 처리를 시작하지는 않는다.
@@ -89,7 +89,7 @@
     - ``` java
         jssc.start();              // Start the computation
         jssc.awaitTermination();   // Wait for the computation to terminate
-    ```
+      ```
 
 * 9999번 포트에서 네트워크로 데이터를 수신하는 간단한 TCP 서버를 시작
 ``` shell

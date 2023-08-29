@@ -91,9 +91,58 @@
         jssc.awaitTermination();   // Wait for the computation to terminate
       ```
 
-6. 참고
-   - 9999번 포트에서 네트워크로 데이터를 수신하는 간단한 TCP 서버를 시작
-   - ``` shell
+6. 테스트
+    - 터미널을 열어 9999번 포트에서 네트워크로 데이터를 수신하는 간단한 TCP 서버를 시작
+    - ``` shell
         $ nc -lk 9999
-    ```
+      ```
+    - `JavaNetworkWordCount` 스트리밍 어플리케이션 구동
+    - ``` sh
+        ./bin/run-example streaming.JavaNetworkWordCount localhost 9999
+      ```
+
+## Basic Concepts
+- 다음으로, 간단한 예제를 넘어 Spark Streaming의 기본 사항에 대해 자세히 설명하겠다.
+
+#### Linking
+- Spark와 유사하게 Spark Streaming은 Maven Central에서 작동할 수 있다.
+- 자신만의 Spark Streaming 프로그램을 개발할 때, SBT 또는 Maven project에 아래 의존성을 추가해야 한다.
+- ``` xml
+    // Maven
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-streaming_2.12</artifactId>
+        <version>3.1.3</version>
+        <scope>provided</scope>
+    </dependency>
+  ```
+- ``` s
+    // sbt
+    libraryDependencies += "org.apache.spark" % "spark-streaming_2.12" % "3.1.3" % "provided"
+  ```
+- Spark Streaming core API에서 지원하지 않는 Kafka, Kinesis와 같은 소스에서 데이터를 받아오기 위해서는 종속성에 `spark-streaming-xyz_2.12`를 추가해야 한다.
+- |Source|Artifact|
+  |---|---|
+  |Kafka| spark-straming-kafka-0-10_2.12|
+  | Kinesis| spark-streaming-kinesis-asl_2.12[Amazon Software License]|
+
+- [Maven repository](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.spark%22%20AND%20v%3A%223.1.3%22)에서 필요한 모든 목록의 최신 버전을 확인할 수 있다.
+
+#### Initializing StreamingContext
+- Spark Streaming 프로그램을 초기화 하기 위해서는 모든 Spark Streaming 기능의 주요 진입점인 `StreamingContext` 객체를 생성해야 한다.
+- `JavaStreamingContext` 객체는 `SparkConf` 객체에서 생성된다.
+- ``` java
+    import org.apache.spark.*;
+    import org.apache.spark.streaming.api.java.*;
+
+    SparkConf conf = new SparkConf().setAppName(appName).setMaster(master);
+    JavaStreamingContext ssc = new JavaStreamingContext(conf, new Duration(1000));
+  ```
+    - `appName` 파라미터는 cluster UI에 보이는 당신의 어플리케이션 이름이다.
+    - `master`는 Spark, Mesos or YARN cluster URL 또는 로컬 모드에서 돌아가는 특별한 문자열 `local[*]` 이다.
+    - 클러스터에서 구동할 때는 `master`를 하드코딩 하지 말고 spark-submit으로 구동[Launching Applications with spark-submit](https://spark.apache.org/docs/3.1.3/submitting-applications.html)하는 게 좋을 것이다.
+    - 
+
+
+
 

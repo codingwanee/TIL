@@ -145,4 +145,68 @@
 
 
 
+- context가 정의한 후 다음을 수행해야 한다.
+    1. 입력 DStream을 생성하여 입력 소스를 정의
+    2. DStream에 변환 및 출력 작업을 적용하여 스트리밍 연산을 정의
+    3. streamingContext.start()를 사용하여 데이터 수신 및 처리 시작
+    4. streamingContext.awaitTermination()을 사용하여 처리가 수동으로 중지되거나 오류로 중지될 때까지 기다림
+    5. streamingContext.stop()을 사용해 처리를 수동으로 중지 가능
+
+
+#### 기억할 포인트
+- 일단 context가 한 번 시작되면, 새로운 스트리밍 연산이 추가될 수 없다.
+- 일단 context가 한 번 멈추면, 재시작할 수 없다.
+- JVM 내에서 한 번에 오직 하나의 StreamingContext만 실행될 수 있다.
+- StreamingContext에서 stop()은 SparkContext도 함께 정지시킨다. StreamingContext만 정지시키기 위해서는 stop()의 인자로 `stopSparkContext`를 false로 설정해주면 된다.
+- SparkContext를 종료시키지 않은 채로 이전 StreamingContext가 종료되고 다음 StreamingContext가 생성되기 전 시점이라면, SparkContext는 재사용되어 여러 개의 StreamingContext를 생성할 수 있다.
+
+
+## Discretized Streams (DStreams)
+- **DStream**은 Spark Streaming이 제공하는 기본적인 추상화 개념이다.
+- DStream은 지속적인 데이터 스트림을 나타내는데, 이 스트림은 데이터 소스에서 입력받은 데이터 스트림일 수도 있고 이것을 변환하고 처리하여 생성된 데이터 스트림일 수도 있다.
+- 내부적으로 DStream은 RDD의 연속적인 시리즈로 표현된다. DSteam의 각 RDD에는 특정 간격의 데이터가 포함되어 있다.
+- DStream에 적용되는 모든 작업은 기본 RDD에 대한 작업으로 변환된다.
+    - 예를 들어, 위에서 라인 스트림을 단어로 변환하는 예제에서, flatMap 작업은 Lines DStream의 각 RDD에 적용되어 단어 DStream의 RDD를 생성한다.
+- Spark 엔진은 이렇게 변환된 RDD들을 연산한다. DStream 기능들은 세부적인 내용은 대부분 숨기고 개발자에게 고수준 API만 제공하여 편리하게 해준다.
+
+
+## Input DStreams and Receivers
+- 입력 DStream은 스트림 소스에서 입력받은 입력 데이터 스트림을 나타낸다.
+- 위에서 봤던 예제에서, lines는 netcat 서버에서 입력받은 데이터 스트림을 나타내는 입력 DStream이었다.
+- 파일 스트림을 제외한(추후 따로 다루기로 한다) 모든 입력 DStream은 **Receiver** ([Scala doc](https://spark.apache.org/docs/latest/api/scala/org/apache/spark/streaming/receiver/Receiver.html), [Java Doc](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/receiver/Receiver.html)) 객체와 연결된다. Receiver 객체는 데이터를 받아와 Spark의 메모리에 쌓는 역할을 한다.
+- Spark STreaming은 2가지 종류의 빌트인 스트리밍 소스를 제공한다.
+    - *Basic sources*: StreamingContext API에서 직접적으로 쓸 수 있는 소스들. ex. 파일시스템, 소켓연결
+    - *Advanced sources*: Kafka, Kinesis 등등의 소스들은 추가적인 클래스를 통해 연결될 수 있다. 후에 linking 섹션에서 다루는 내용이다.
+- 주의할 것은, 스트리밍 애플리케이션에 동시에 여러 개의 스트림을 병렬로 받고자 한다면 여러 개의 입력 DStream을 생성하면 된다.
+- 이렇게 하면 여러 개의 receiver가 생성되어 동시에 여러 데이터 스트림을 입력받을 수 있다.
+- 하지만 Spark worker/executor는 보통 장기 실행작업이므로 Spark Streaming 애플리케이션에 할당된 코어 중 하나를 차지한다.
+- 따라서 수신된 데이터를 처리하고 수신기를 실행하려면 Spark Streaming 애플리케이션에 충분한 코어를 할당해야 한다는 점을 기억해야 한다.(로컬로 실행되는 경우에는 스레드)
+
+#### 기억할 포인트
+- 로컬 환경에서 Spark Streaming을 실행한다면 master URL에 "local" 또는 "local[1]"을 사용하면 안 된다. 이 두 가지는 로컬에서 딱 하나의 스레드만 사용될 것이라는 뜻이 된다.
+- 만약 이 상황에서 receiver 기반의 입력 DStream을 이용한다면 receiver를 구동하는 데 싱글 스레드가 사용되고, 입력받은 데이터를 처리하는데 사용될 스레드가 없게 된다.
+- 따라서 로컬 환경에서 실행할 때는 "local[n]"을 master URL에 넣고, 이 때의 *n*은 실행하려 하는 receiver보다 큰 숫자로 지정해야 한다.
+- 클러스터 환경에서 실행할 때로 확장해서 보면, Spark Streaming 어플리케이션은 사용하려는 receiver의 숫자보다 더 많은 core를 할당하고 있어야 한다. 그렇지 않으면 시스템이 데이터를 입력받는 데 까지는 가능하지만 처리할 수 없게 된다.
+
+
+
+#### Basic Sources
+- 위에 quick example에서 TCP socket connection에서 텍스트 데이터를 입력받아 DStream을 생성하는 ssc.socketTextStream(...)을 살펴보았다.
+- socket 외에도 StreamingContext API는 파일을 입력소스로 받아 DStream을 생성하는 메소드들을 제공한다.
+
+#### File Streams
+- HDFS API와 호화노디는 모든 파일 시스템(즉 HDFS, S3, NFS 등)의 파일에서 데이터를 읽어오려면 `StreamingContext.fileStream[KeyClass, ValueClass, InputFormatClass]`를 통해 DStream을 생성할 수 있다.
+    - ``` java
+        streamingContext.fileStream<KeyClass, ValueClass, InputFormatClass>(dataDirectory);
+      ```
+- 파일 스트림은 receiver를 필요로 하지 않기 때문에, 파일 데이터를 받아오기 위한 core를 할당해줄 필요가 없다.
+- 간단한 텍스트 파일을 처리하기 위해 사용할 수 있는 가장 쉬운 메소드는 `StreamingContext.textFileStream(dataDirectory)`이다.
+    - ``` java
+        streamingContext.textFileStream(dataDirectory);
+      ```
+
+#### How Directories are Monitored
+- Spark Streaming은 `dataDirectory` 디렉토리를 모니터링하여 해당 디렉토리에 생성된 모든 파일을 처리한다.
+    - 
+
 

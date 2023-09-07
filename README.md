@@ -46,6 +46,9 @@
   * [server의 기초](https://github.com/codingwanee/TIL/blob/main/Server/server/about-server.md)
   * [server의 구성](https://github.com/codingwanee/TIL/blob/main/Server/server/server-structure.md)
 
+
+## DevOps
+
 * kafka
   * [kafka의 기초](https://github.com/codingwanee/TIL/blob/main/Server/kafka/HelloKafka.md)
   * [kafka의 broker](https://github.com/codingwanee/TIL/blob/main/Server/kafka/kafka-broker.md)
@@ -54,13 +57,29 @@
   * [kafka의 message, topic, partition](https://github.com/codingwanee/TIL/blob/main/Server/kafka/kafka-message-topic-partition.md)
   * [docker에서 kafka 이용하기 튜토리얼](https://github.com/codingwanee/TIL/tree/main/Server/kafka/docker-kafka.md)
 
+## Big, Real-time Data
+
+* Streaming
+  * [Hadoop의 기초](https://github.com/codingwanee/TIL/blob/main/SparkStream/about-Hadoop.md)
+  * [HDFS의 기초](https://github.com/codingwanee/TIL/blob/main/SparkStream/about-HDFS.md)
+  * [MapReduce의 기초](https://github.com/codingwanee/TIL/blob/main/SparkStream/about-MapReduce.md)
+  * [Hive의 기초](https://github.com/codingwanee/TIL/blob/main/SparkStream/about-Hive.md)
+
+* Spark-Streaming
+  * [ApacheSpark](https://github.com/codingwanee/TIL/blob/main/SparkStream/about-ApacheSpark.md)
+  * [Spark-Streaming의 기초](https://github.com/codingwanee/TIL/blob/main/SparkStream/document-spark-streaming.md)
+  * [Spark-Streaming-3.1.3-documentation-번역](https://github.com/codingwanee/TIL/blob/main/SparkStream/document-spark-streaming.md)
+
+## Frontend
+
+* [리액트의 기초](https://github.com/codingwanee/TIL/blob/main/Frontend/about-react.md)
+* [리액트 함수의 effect](https://github.com/codingwanee/TIL/blob/main/Frontend/React/about-effect.md)
 
 ## Functional Programming
 
 * basic
   * [모나드의 이해](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/MonadBasic.md)
   * [함수형 프로그래밍의 기초](https://github.com/codingwanee/TIL/tree/main/FunctionalProgramming/FunctionalProgrammingBasic.md)
-
 
 ## LearnWithCode
 
